@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpTraining", "CSharpTra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinKombine", "CoinKombine\CoinKombine.csproj", "{1195EC0C-CDD4-4C9A-9BAB-9DD7BE36036F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PLCSockTest", "PLCSockTest\PLCSockTest.csproj", "{B662C4FB-6CCA-4D5D-9E7E-3FCFC85F20FC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gRPCDemo", "gRPCDemo\gRPCDemo.csproj", "{AF3E0A6D-8B6E-405C-BA2F-4C35C79767DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +21,9 @@ Global
 		{1195EC0C-CDD4-4C9A-9BAB-9DD7BE36036F}.Debug|x86.Build.0 = Debug|x86
 		{1195EC0C-CDD4-4C9A-9BAB-9DD7BE36036F}.Release|x86.ActiveCfg = Release|x86
 		{1195EC0C-CDD4-4C9A-9BAB-9DD7BE36036F}.Release|x86.Build.0 = Release|x86
-		{B662C4FB-6CCA-4D5D-9E7E-3FCFC85F20FC}.Debug|x86.ActiveCfg = Debug|x86
-		{B662C4FB-6CCA-4D5D-9E7E-3FCFC85F20FC}.Debug|x86.Build.0 = Debug|x86
-		{B662C4FB-6CCA-4D5D-9E7E-3FCFC85F20FC}.Release|x86.ActiveCfg = Release|x86
-		{B662C4FB-6CCA-4D5D-9E7E-3FCFC85F20FC}.Release|x86.Build.0 = Release|x86
+		{AF3E0A6D-8B6E-405C-BA2F-4C35C79767DD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{AF3E0A6D-8B6E-405C-BA2F-4C35C79767DD}.Debug|x86.Build.0 = Debug|Any CPU
+		{AF3E0A6D-8B6E-405C-BA2F-4C35C79767DD}.Release|x86.ActiveCfg = Release|Any CPU
+		{AF3E0A6D-8B6E-405C-BA2F-4C35C79767DD}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

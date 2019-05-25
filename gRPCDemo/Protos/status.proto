@@ -1,0 +1,19 @@
+﻿syntax = "proto3";
+
+package status;
+
+service Status {
+  rpc GetStatus (StatusRequest) returns (StatusResponse) {}
+}
+
+message StatusRequest {
+  string client = 1;
+  int32 request_type = 2;
+  bytes challenge = 3;
+}
+
+message StatusResponse {
+  string status_message = 1;
+  int32 status_code = 2;
+  bytes payload = 3;
+}
