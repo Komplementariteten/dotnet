@@ -1,0 +1,19 @@
+﻿<Properties StartupConfiguration="{1195EC0C-CDD4-4C9A-9BAB-9DD7BE36036F}|Default">
+  <MonoDevelop.Ide.ItemProperties.CSharpTraining PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.ItemProperties.CoinKombine PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="PLCSockTest/Util/Extensions.cs">
+    <Files>
+      <File FileName="CoinKombine/Program.cs" Line="20" Column="32" />
+      <File FileName="CoinKombine/Combiner.cs" Line="64" Column="1" />
+      <File FileName="PLCSockTest/Program.cs" Line="1" Column="1" />
+      <File FileName="PLCSockTest/Util/Extensions.cs" Line="17" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.ItemProperties.PLCSockTest FirstBuild="True" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

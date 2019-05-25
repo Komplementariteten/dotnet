@@ -1,0 +1,42 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MefCoreDemo", "MefCoreDemo\MefCoreDemo.csproj", "{90A224C5-7F7C-4EA9-A0FE-FA8701816E20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MefDemo.Contracts", "MefDemo.Contracts\MefDemo.Contracts.csproj", "{687AC4B6-4AED-469D-BC5E-48B98EF79179}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MefDemo.Actor1", "MefDemo.Actor1\MefDemo.Actor1.csproj", "{F4BB66CB-3912-4BA7-A372-91799A22B8A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MefDemo.Actor2", "MefDemo.Actor2\MefDemo.Actor2.csproj", "{1D9CB994-A2AF-42AE-8EA7-51E0DBF9BC4F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{90A224C5-7F7C-4EA9-A0FE-FA8701816E20}.Debug|x86.ActiveCfg = Debug|x86
+		{90A224C5-7F7C-4EA9-A0FE-FA8701816E20}.Debug|x86.Build.0 = Debug|x86
+		{90A224C5-7F7C-4EA9-A0FE-FA8701816E20}.Release|x86.ActiveCfg = Release|x86
+		{90A224C5-7F7C-4EA9-A0FE-FA8701816E20}.Release|x86.Build.0 = Release|x86
+		{687AC4B6-4AED-469D-BC5E-48B98EF79179}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{687AC4B6-4AED-469D-BC5E-48B98EF79179}.Debug|x86.Build.0 = Debug|Any CPU
+		{687AC4B6-4AED-469D-BC5E-48B98EF79179}.Release|x86.ActiveCfg = Release|Any CPU
+		{687AC4B6-4AED-469D-BC5E-48B98EF79179}.Release|x86.Build.0 = Release|Any CPU
+		{F4BB66CB-3912-4BA7-A372-91799A22B8A7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F4BB66CB-3912-4BA7-A372-91799A22B8A7}.Debug|x86.Build.0 = Debug|Any CPU
+		{F4BB66CB-3912-4BA7-A372-91799A22B8A7}.Release|x86.ActiveCfg = Release|Any CPU
+		{F4BB66CB-3912-4BA7-A372-91799A22B8A7}.Release|x86.Build.0 = Release|Any CPU
+		{1D9CB994-A2AF-42AE-8EA7-51E0DBF9BC4F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1D9CB994-A2AF-42AE-8EA7-51E0DBF9BC4F}.Debug|x86.Build.0 = Debug|Any CPU
+		{1D9CB994-A2AF-42AE-8EA7-51E0DBF9BC4F}.Release|x86.ActiveCfg = Release|Any CPU
+		{1D9CB994-A2AF-42AE-8EA7-51E0DBF9BC4F}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.DotNetNamingPolicy = $1
+		$1.DirectoryNamespaceAssociation = PrefixedHierarchical
+		$0.StandardHeader = $2
+		$0.VersionControlPolicy = $3
+	EndGlobalSection
+EndGlobal
