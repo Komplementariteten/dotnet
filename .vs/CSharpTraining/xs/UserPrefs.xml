@@ -1,23 +1,21 @@
-﻿<Properties StartupConfiguration="{1195EC0C-CDD4-4C9A-9BAB-9DD7BE36036F}|Default">
+﻿<Properties StartupConfiguration="{8A10297B-E94C-43CC-AD84-F1C5990FB325}|Default">
   <MonoDevelop.Ide.ItemProperties.CSharpTraining PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.ItemProperties.CoinKombine PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="gRPCDemo/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GrpcDataStreamer/Protos/datastreamer.proto">
     <Files>
-      <File FileName="CoinKombine/Program.cs" Line="20" Column="32" />
-      <File FileName="CoinKombine/Combiner.cs" Line="64" Column="1" />
-      <File FileName="gRPCDemo/Program.cs" Line="13" Column="53" />
-      <File FileName="gRPCDemo/Protos/status.proto" Line="18" Column="21" />
-      <File FileName="gRPCDemo/StatusData.cs" Line="19" Column="55" />
-      <File FileName="gRPCDemo/StatusServer.cs" Line="11" Column="53" />
+      <File FileName="GrpcDataStreamer/Protos/datastreamer.proto" Line="20" Column="1" />
+      <File FileName="GrpcDemo/Services/GreeterService.cs" Line="1" Column="1" />
+      <File FileName="GrpcDataStreamer/Services/DataStreamService.cs" Line="3" Column="1" />
+      <File FileName="GrpcDataStreamer/Datastreamer.g.cs" Line="356" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="CSharpTraining" expanded="True">
-            <Node name="CoinKombine" expanded="True" />
-            <Node name="gRPCDemo" expanded="True">
-              <Node name="Protos" expanded="True" />
-              <Node name="Program.cs" selected="True" />
+            <Node name="GrpcDataStreamer" expanded="True" selected="True">
+              <Node name="Services" expanded="True" />
+            </Node>
+            <Node name="GrpcDemo" expanded="True">
+              <Node name="Services" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -25,7 +23,9 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.gRPCDemo FirstBuild="True" />
+  <DisabledProjects>
+    <String>CoinKombine/CoinKombine.csproj</String>
+  </DisabledProjects>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

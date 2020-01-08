@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpTraining", "CSharpTraining\CSharpTraining.csproj", "{8A10297B-E94C-43CC-AD84-F1C5990FB325}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinKombine", "CoinKombine\CoinKombine.csproj", "{1195EC0C-CDD4-4C9A-9BAB-9DD7BE36036F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrpcDemo", "GrpcDemo\GrpcDemo.csproj", "{F5CDEC2B-683E-4492-A072-499C12B75CCA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gRPCDemo", "gRPCDemo\gRPCDemo.csproj", "{AF3E0A6D-8B6E-405C-BA2F-4C35C79767DD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrpcDataStreamer", "GrpcDataStreamer\GrpcDataStreamer.csproj", "{AF1BE4D4-EE46-4DFB-B9B8-DEE165E831B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,13 +17,13 @@ Global
 		{8A10297B-E94C-43CC-AD84-F1C5990FB325}.Debug|x86.Build.0 = Debug|x86
 		{8A10297B-E94C-43CC-AD84-F1C5990FB325}.Release|x86.ActiveCfg = Release|x86
 		{8A10297B-E94C-43CC-AD84-F1C5990FB325}.Release|x86.Build.0 = Release|x86
-		{1195EC0C-CDD4-4C9A-9BAB-9DD7BE36036F}.Debug|x86.ActiveCfg = Debug|x86
-		{1195EC0C-CDD4-4C9A-9BAB-9DD7BE36036F}.Debug|x86.Build.0 = Debug|x86
-		{1195EC0C-CDD4-4C9A-9BAB-9DD7BE36036F}.Release|x86.ActiveCfg = Release|x86
-		{1195EC0C-CDD4-4C9A-9BAB-9DD7BE36036F}.Release|x86.Build.0 = Release|x86
-		{AF3E0A6D-8B6E-405C-BA2F-4C35C79767DD}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{AF3E0A6D-8B6E-405C-BA2F-4C35C79767DD}.Debug|x86.Build.0 = Debug|Any CPU
-		{AF3E0A6D-8B6E-405C-BA2F-4C35C79767DD}.Release|x86.ActiveCfg = Release|Any CPU
-		{AF3E0A6D-8B6E-405C-BA2F-4C35C79767DD}.Release|x86.Build.0 = Release|Any CPU
+		{F5CDEC2B-683E-4492-A072-499C12B75CCA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F5CDEC2B-683E-4492-A072-499C12B75CCA}.Debug|x86.Build.0 = Debug|Any CPU
+		{F5CDEC2B-683E-4492-A072-499C12B75CCA}.Release|x86.ActiveCfg = Release|Any CPU
+		{F5CDEC2B-683E-4492-A072-499C12B75CCA}.Release|x86.Build.0 = Release|Any CPU
+		{AF1BE4D4-EE46-4DFB-B9B8-DEE165E831B5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{AF1BE4D4-EE46-4DFB-B9B8-DEE165E831B5}.Debug|x86.Build.0 = Debug|Any CPU
+		{AF1BE4D4-EE46-4DFB-B9B8-DEE165E831B5}.Release|x86.ActiveCfg = Release|Any CPU
+		{AF1BE4D4-EE46-4DFB-B9B8-DEE165E831B5}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,19 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "GrpcDataStreamer";
+
+package ServiceDefinitions;
+
+message Feature {
+    int32 Id = 1;
+    int32 Length = 2;
+    repeated uint32 Payload = 3;
+}
+
+message FeatureRequest {
+    int32 Length = 1;
+}
+
+service DataStreamer {
+    rpc GetFeatureStream(FeatureRequest) returns (stream Feature);
+}
