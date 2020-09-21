@@ -3,6 +3,8 @@ namespace TestUnixSockets
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System.IO;
     using System.Net.Sockets;
+    using TestRunner;
+
     [TestClass]
     public class UnixSocketTests
     {
@@ -10,8 +12,7 @@ namespace TestUnixSockets
         [TestMethod]
         public void TestUnspecified()
         {
-            var s = this.GetUnixSocket(ProtocolType.Unspecified);
-            var writer = new SocketWriter();
+            UnixSocketRunner.Run();
         }
     }
 }

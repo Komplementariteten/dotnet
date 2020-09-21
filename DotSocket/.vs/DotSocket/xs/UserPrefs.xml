@@ -1,0 +1,43 @@
+﻿<Properties StartupConfiguration="{7C0D1C73-4165-40A6-A372-DEED53235E3A}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DataHandlers/SocketWriter.cs">
+    <Files>
+      <File FileName="TestUnixSockets/UnitTest1.cs" Line="19" Column="1" />
+      <File FileName="TestRunner/UnixSocketRunner.cs" Line="30" Column="1" />
+      <File FileName="DataHandlers/Contracts.cs" Line="40" Column="1" />
+      <File FileName="DataHandlers/DataType.cs" Line="2" Column="23" />
+      <File FileName="DataHandlers/SocketWriter.cs" Line="53" Column="33" />
+      <File FileName="DataHandlers/SocketReader.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="DotSocket" expanded="True">
+            <Node name="DataHandlers" expanded="True">
+              <Node name="SocketWriter.cs" selected="True" />
+            </Node>
+            <Node name="TestRunner" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+            </Node>
+            <Node name="TestUnixSockets" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="DotSocket" expanded="True">
+            <Node name="TestUnixSockets" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.TestUnixSockets PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|anycpu" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/me/Documents/Workspace/GitHub/dotnet/DotSocket/TestRunner/UnixSocketRunner.cs" relfile="TestRunner/UnixSocketRunner.cs" line="30" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
