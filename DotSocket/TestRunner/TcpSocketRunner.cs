@@ -1,23 +1,21 @@
-﻿namespace TestRunner
-{
-    using System;
-    using System.Diagnostics;
-    using System.IO;
-    using System.Net.Sockets;
-    using System.Threading;
-    using DataHandlers;
+﻿using System;
+using System.Diagnostics;
+using System.Net;
+using System.Net.Sockets;
+using System.Threading;
+using DataHandlers;
 
-    public class UnixSocketRunner
+namespace TestRunner
+{
+    public class TcpSocketRunner
     {
-        public UnixSocketRunner()
+        public TcpSocketRunner()
         {
 
         }
 
         public static (double, double, TimeSpan) RunSmall()
         {
-
-            var tempFileName = "abc1.sock";
             var serverCancellationSource = new CancellationTokenSource();
             var clientCancellationSource = new CancellationTokenSource();
             var stopWatch = Stopwatch.StartNew();
@@ -27,7 +25,7 @@
             {
                 var sw = new SocketWriter();
                 var sr = new SocketReader();
-                var socks = UnixSocketRunner.GetUnixSockets(ProtocolType.Unspecified, tempFileName);
+                var socks = TcpSocketRunner.GetSockets();
 
                 var wirter = sw.Run(DataType.Small, serverCancellationSource.Token, socks.Server);
 
@@ -43,14 +41,12 @@
             }
             catch (Exception e)
             {
-                Debug.WriteLine(e.StackTrace);
+                Console.WriteLine(e.StackTrace);
             }
             finally
             {
                 elapesedTime = stopWatch.Elapsed;
                 stopWatch.Stop();
-
-                File.Delete(tempFileName);
             }
             double readen_kbPerS = (reader_count / 1024) / elapesedTime.TotalSeconds;
             double writen_kbPerS = (writer_count / 1024) / elapesedTime.TotalSeconds;
@@ -59,8 +55,6 @@
 
         public static (double, double, TimeSpan) RunBig()
         {
-
-            var tempFileName = "abc2.sock";
             var serverCancellationSource = new CancellationTokenSource();
             var clientCancellationSource = new CancellationTokenSource();
             var stopWatch = Stopwatch.StartNew();
@@ -70,7 +64,7 @@
             {
                 var sw = new SocketWriter();
                 var sr = new SocketReader();
-                var socks = UnixSocketRunner.GetUnixSockets(ProtocolType.Unspecified, tempFileName);
+                var socks = TcpSocketRunner.GetSockets();
 
                 var wirter = sw.Run(DataType.Big, serverCancellationSource.Token, socks.Server);
 
@@ -86,29 +80,29 @@
             }
             catch (Exception e)
             {
-                Debug.WriteLine(e.StackTrace);
+                Console.WriteLine(e.StackTrace);
             }
             finally
             {
                 elapesedTime = stopWatch.Elapsed;
                 stopWatch.Stop();
-                File.Delete(tempFileName);
             }
             double readen_kbPerS = (reader_count / 1024) / elapesedTime.TotalSeconds;
             double writen_kbPerS = (writer_count / 1024) / elapesedTime.TotalSeconds;
             return (readen_kbPerS, writen_kbPerS, elapesedTime);
-
         }
 
-        private static (Socket Server, Socket Client) GetUnixSockets(ProtocolType protocolType, string socketPath)
+        private static (Socket Server, Socket Client) GetSockets()
         {
-            var usep = new UnixDomainSocketEndPoint(socketPath);
-            var unixSocket = new Socket(AddressFamily.Unix, SocketType.Stream, protocolType);
-            unixSocket.Bind(usep);
-            unixSocket.Listen(1);
-            var clientSocket = new Socket(AddressFamily.Unix, SocketType.Stream, protocolType);
-            clientSocket.Connect(usep);
-            return (unixSocket, clientSocket);
+            var hostname = Dns.GetHostName();
+            var ips = Dns.GetHostAddresses(hostname);
+            var endPoint = new IPEndPoint(ips[ips.Length - 1], 65111);
+            var tcpSocket = new Socket(endPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+            tcpSocket.Bind(endPoint);
+            tcpSocket.Listen(1);
+            var clientSocket = new Socket(endPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+            clientSocket.Connect(endPoint);
+            return (tcpSocket, clientSocket);
         }
     }
 }

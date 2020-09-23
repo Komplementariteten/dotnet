@@ -12,7 +12,8 @@ namespace TestUnixSockets
         [TestMethod]
         public void TestUnspecified()
         {
-            UnixSocketRunner.Run();
+            UnixSocketRunner.RunBig();
+            UnixSocketRunner.RunSmall();
         }
     }
 }

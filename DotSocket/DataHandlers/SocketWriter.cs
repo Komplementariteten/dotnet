@@ -7,6 +7,7 @@
     using System.Threading;
     using System.IO;
     using System.Runtime.Serialization.Formatters.Binary;
+    using System.Diagnostics;
 
     public class SocketWriter
     {
@@ -17,7 +18,7 @@
 
         public SocketWriter()
         {
-            var small = new SomeData(128);
+            var small = new SomeData(16);
             var big = new SomeData(64824);
 
             using (var ms = new MemoryStream())
@@ -35,13 +36,11 @@
             }
         }
 
-        public void WriteSmal(Socket s)
-        {
-            s.Send(this.smallBuffer);
-        }
-
         public Task<ulong> Run(DataType dataType, CancellationToken token, Socket target)
         {
+            double size_in_bytes = dataType == DataType.Big ? this.bigBuffer.Length : this.smallBuffer.Length;
+            double size_in_kb = size_in_bytes / 1024;
+            Console.WriteLine($"DataPackage has {Math.Round(size_in_kb, 4)} kByte");
             this.target = target;
             return Task.Factory.StartNew<ulong>(this.SendData(dataType, token), token, TaskCreationOptions.LongRunning);
         }
@@ -52,13 +51,31 @@
             {
                 ulong count = 0;
                 var client = this.target.Accept();
+                client.ReceiveTimeout = 1000;
+
                 while (!token.IsCancellationRequested)
                 {
-                    if (dataType == DataType.Big)
-                        count += (ulong)client.Send(this.bigBuffer);
-                    else
-                        count += (ulong)client.Send(this.smallBuffer);
+                    try
+                    {
+                        if (dataType == DataType.Big)
+                        {
+                            if (!client.Connected) break;
+                            client.Send(this.bigBuffer);
+                            count += Convert.ToUInt64(this.bigBuffer.Length);
+                        }
+                        else
+                        {
+                            if (!client.Connected) continue;
+                            client.Send(this.smallBuffer);
+                            count += Convert.ToUInt64(this.smallBuffer.Length);
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.WriteLine(e.StackTrace);
+                    }
                 }
+                this.target.Close();
                 return count;
             };
         }
