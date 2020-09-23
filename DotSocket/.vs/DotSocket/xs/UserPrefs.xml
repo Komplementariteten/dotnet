@@ -1,0 +1,40 @@
+﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{4373C495-CED6-4906-A097-EF169C9CB702}|Default">
+  <MonoDevelop.Ide.Workbench>
+    <Files>
+      <File FileName="TestRunner/UnixSocketRunner.cs" Line="103" Column="1" />
+      <File FileName="DataHandlers/Contracts.cs" />
+      <File FileName="DataHandlers/DataType.cs" />
+      <File FileName="DataHandlers/SocketWriter.cs" />
+      <File FileName="DataHandlers/SocketReader.cs" />
+      <File FileName="TestRunner/Program.cs" Line="41" Column="1" />
+      <File FileName="TestRunner/TcpSocketRunner.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="DotSocket" expanded="True" selected="True">
+            <Node name="DataHandlers" expanded="True" />
+            <Node name="TestRunner" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="DotSocket" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.TestRunner PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.ItemProperties.TestUnixSockets PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|anycpu" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/me/Documents/Workspace/GitHub/dotnet/DotSocket/TestUnixSockets/UnixSocketTests.cs" relfile="TestUnixSockets/UnixSocketTests.cs" line="17" column="1" />
+      <Breakpoint file="/Users/me/Documents/Workspace/GitHub/dotnet/DotSocket/TestRunner/TcpSocketRunner.cs" relfile="TestRunner/TcpSocketRunner.cs" line="83" column="1" />
+      <Breakpoint file="/Users/me/Documents/Workspace/GitHub/dotnet/DotSocket/TestRunner/TcpSocketRunner.cs" relfile="TestRunner/TcpSocketRunner.cs" line="44" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

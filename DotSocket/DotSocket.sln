@@ -1,0 +1,29 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestUnixSockets", "TestUnixSockets\TestUnixSockets.csproj", "{7C0D1C73-4165-40A6-A372-DEED53235E3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestRunner", "TestRunner\TestRunner.csproj", "{4373C495-CED6-4906-A097-EF169C9CB702}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataHandlers", "DataHandlers\DataHandlers.csproj", "{7F9B2905-EC94-4417-8EDA-BCF5C5EDADF6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|anycpu = Debug|anycpu
+		Release|anycpu = Release|anycpu
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7C0D1C73-4165-40A6-A372-DEED53235E3A}.Debug|anycpu.ActiveCfg = Debug|Any CPU
+		{7C0D1C73-4165-40A6-A372-DEED53235E3A}.Debug|anycpu.Build.0 = Debug|Any CPU
+		{7C0D1C73-4165-40A6-A372-DEED53235E3A}.Release|anycpu.ActiveCfg = Release|Any CPU
+		{7C0D1C73-4165-40A6-A372-DEED53235E3A}.Release|anycpu.Build.0 = Release|Any CPU
+		{4373C495-CED6-4906-A097-EF169C9CB702}.Debug|anycpu.ActiveCfg = Debug|Any CPU
+		{4373C495-CED6-4906-A097-EF169C9CB702}.Debug|anycpu.Build.0 = Debug|Any CPU
+		{4373C495-CED6-4906-A097-EF169C9CB702}.Release|anycpu.ActiveCfg = Release|Any CPU
+		{4373C495-CED6-4906-A097-EF169C9CB702}.Release|anycpu.Build.0 = Release|Any CPU
+		{7F9B2905-EC94-4417-8EDA-BCF5C5EDADF6}.Debug|anycpu.ActiveCfg = Debug|Any CPU
+		{7F9B2905-EC94-4417-8EDA-BCF5C5EDADF6}.Debug|anycpu.Build.0 = Debug|Any CPU
+		{7F9B2905-EC94-4417-8EDA-BCF5C5EDADF6}.Release|anycpu.ActiveCfg = Release|Any CPU
+		{7F9B2905-EC94-4417-8EDA-BCF5C5EDADF6}.Release|anycpu.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
