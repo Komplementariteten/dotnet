@@ -8,6 +8,7 @@
     using System.IO;
     using System.Runtime.Serialization.Formatters.Binary;
     using System.Diagnostics;
+    using System.Collections.Generic;
 
     public class SocketWriter
     {
@@ -18,22 +19,33 @@
 
         public SocketWriter()
         {
-            var small = new SomeData(16);
-            var big = new SomeData(64824);
+            var small = new SomeData(Constants.SIZEOF_SMALL);
+            var big = new SomeData(Constants.SIZEOF_BIG);
 
-            using (var ms = new MemoryStream())
-            {
-                var bf = new BinaryFormatter();
-                bf.Serialize(ms, big);
-                this.bigBuffer = ms.ToArray();
-            }
 
-            using (var ms = new MemoryStream())
-            {
-                var bf = new BinaryFormatter();
-                bf.Serialize(ms, small);
-                this.smallBuffer = ms.ToArray();
-            }
+            var sepSpan = new Span<Seperator>(new Seperator[] { small.Seperator });
+            var sepBytes = MemoryMarshal.AsBytes(sepSpan).ToArray();
+
+            var globSpan = new Span<Global>(new Global[] { small.Global });
+            var globBytes = MemoryMarshal.AsBytes(globSpan).ToArray();
+
+            var smallSpan = new Span<AmpTof>(small.Content);
+            var smallBytes = MemoryMarshal.AsBytes(smallSpan).ToArray();
+
+            var bigSpan = new Span<AmpTof>(big.Content);
+            var bigBytes = MemoryMarshal.AsBytes(bigSpan).ToArray();
+            var smallByteList = new List<byte>();
+
+            smallByteList.AddRange(sepBytes);
+            smallByteList.AddRange(globBytes);
+            smallByteList.AddRange(smallBytes);
+            this.smallBuffer = smallByteList.ToArray();
+
+            var bigByteList = new List<byte>();
+            bigByteList.AddRange(sepBytes);
+            bigByteList.AddRange(globBytes);
+            bigByteList.AddRange(bigBytes);
+            this.bigBuffer = bigByteList.ToArray();
         }
 
         public Task<ulong> Run(DataType dataType, CancellationToken token, Socket target)

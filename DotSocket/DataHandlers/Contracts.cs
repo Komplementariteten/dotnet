@@ -1,12 +1,18 @@
 ﻿using System;
 namespace DataHandlers
 {
-    [Serializable]
-    internal struct SomeData
+    public static class Constants
     {
-        internal Seperator Seperator { get; }
-        internal Global Global { get; }
-        internal AmpTof[] Content { get; }
+        public const int SIZEOF_BIG = 124824;
+        public const int SIZEOF_SMALL = 16;
+    }
+
+    [Serializable]
+    public struct SomeData
+    {
+        internal Seperator Seperator { get; set; }
+        internal Global Global { get; set; }
+        internal AmpTof[] Content { get; set; }
 
         public SomeData(int contentCount)
         {
@@ -40,5 +46,13 @@ namespace DataHandlers
     internal struct Seperator
     {
         public ulong Part1;
+    }
+
+    internal struct PlainStruct
+    {
+        uint A;
+        long B;
+        byte C;
+        int D;
     }
 }
