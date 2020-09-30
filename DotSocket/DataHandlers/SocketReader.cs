@@ -33,7 +33,7 @@ namespace DataHandlers
                     if (this.source.Available == 0)
                     {
                         if (token.IsCancellationRequested) return count;
-                        Task.Delay(TimeSpan.FromMilliseconds(40)).Wait();
+                        Task.Delay(TimeSpan.FromMilliseconds(5)).Wait();
                         continue;
                     }
                     var buffer = new byte[this.source.Available];
