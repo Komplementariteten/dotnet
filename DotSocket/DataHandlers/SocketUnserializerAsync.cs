@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -25,11 +26,21 @@ namespace DataHandlers
 
         public Stopwatch StopWatch { get; } = new Stopwatch();
 
+        public Stopwatch RunWatch { get; } = new Stopwatch();
+
         private DataType dataType;
+
+        private ConcurrentQueue<byte[]> dataQue = new ConcurrentQueue<byte[]>();
+
+        private Task<int> processor;
 
         private ulong dataReaden;
 
         private int numberOfItems = 0;
+
+        private int quedItems = 0;
+
+        private bool isStarted = false;
 
         private int sizeOfSeperator = 0;
 
@@ -47,7 +58,6 @@ namespace DataHandlers
 
             this.transformBlock.LinkTo(this.StoreAction);
 
-            this.transformBlock.Completion.ContinueWith((a) => this.StopWatch.Stop());
         }
 
         public void StoreDataAction(SomeData obj)
@@ -114,8 +124,35 @@ namespace DataHandlers
             this.dataSize = this.sizeOfGlobal + this.sizeOfSeperator + (this.numberOfItems * this.sizeOfAmp);
             this.batchBlock = new BatchBlock<byte>(this.dataSize);
             this.batchBlock.LinkTo(this.transformBlock);
+            this.processor = Task.Factory.StartNew((o) =>
+            {
+                byte[] item;
+                while (!this.isStarted || this.quedItems > 0)
+                {
+
+                    if (this.dataQue.TryDequeue(out item))
+                    {
+                        for (int i = 0; i < item.Length; i++)
+                        {
+                            this.batchBlock.Post(item[i]);
+                        }
+                        this.quedItems--;
+                    }
+                    else
+                    {
+                        Task.Delay(TimeSpan.FromMilliseconds(10));
+                        if (this.dataQue.Count == 0 && this.dataStore.Count > 0)
+                        {
+                            return 1;
+                        }
+                    }
+                }
+                return 0;
+            }, token, TaskCreationOptions.LongRunning);
+
             return Task.Factory.StartNew(this.ReadData(dataType, token), token, TaskCreationOptions.LongRunning);
         }
+
 
         private Func<object, ulong> ReadData(DataType dataType, CancellationToken token)
         {
@@ -124,12 +161,14 @@ namespace DataHandlers
                 ulong count = 0;
                 var data = new List<SomeData>();
                 var state = new StateObject();
+                this.RunWatch.Start();
                 state.workSocket = this.source;
 
                 while (this.source.Connected)
                 {
                     this.source.BeginReceive(state.buffer, 0, StateObject.BufferSize, 0, new AsyncCallback(this.RecieveCallback), state);
                 }
+                this.RunWatch.Stop();
                 return this.HandleReturn(count);
             };
         }
@@ -150,29 +189,25 @@ namespace DataHandlers
 
                 if (recieved > 0)
                 {
-                    for (int i = 0; i < s.buffer.Length; i++)
-                    {
-                        this.batchBlock.Post(s.buffer[i]);
-                    }
-
+                    this.dataQue.Enqueue(s.buffer);
+                    this.isStarted = true;
+                    this.quedItems++;
                     c.BeginReceive(s.buffer, 0, StateObject.BufferSize, 0, new AsyncCallback(RecieveCallback), s);
                 }
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.ToString());
+                Debug.WriteLine(e.ToString());
             }
         }
 
         private ulong HandleReturn(ulong count)
         {
+            this.processor.Wait();
             this.batchBlock.Complete();
             this.transformBlock.Complete();
-            this.StoreAction.Completion.ContinueWith((o) =>
-            {
-                this.StopWatch.Stop();
-            });
             this.StoreAction.Complete();
+            this.StopWatch.Stop();
             return this.dataReaden;
         }
     }

@@ -145,10 +145,7 @@ namespace DataHandlers
             this.batchBlock.TriggerBatch();
             this.batchBlock.Complete();
             this.transformBlock.Complete();
-            this.StoreAction.Completion.ContinueWith((o) =>
-            {
-                this.StopWatch.Stop();
-            });
+            this.StopWatch.Stop();
             this.StoreAction.Complete();
             return count;
         }

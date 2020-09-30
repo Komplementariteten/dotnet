@@ -13,13 +13,16 @@ namespace TestRunner
             Console.WriteLine("");
             Console.WriteLine("LocalHost -----");
             var ls = new LocalSocketUnserializer();
-            var (readen1, time2, time1) = ls.RunBigAsync();
-            Console.WriteLine($"DATARATE - in {Math.Round(time1.TotalSeconds, 4)}s Readen {Math.Round(readen1, 2)} kB/s - Serialization took {Math.Round(time2.TotalSeconds, 4)} s");
+            var (readen1, ts, time1) = ls.RunBigAsync();
+            Console.WriteLine($"DATARATE - in {Math.Round(time1.TotalSeconds, 4)}s Readen {Math.Round(readen1, 2)} kB/s - Serialization took {Math.Round(ts.TotalSeconds, 4)} s");
 
-            var (readen, stime, rtime) = ls.RunBig();
-            Console.WriteLine($"DATARATE - in {Math.Round(rtime.TotalSeconds, 4)}s Readen {Math.Round(readen, 2)} kB/s - Serialization took {Math.Round(stime.TotalSeconds, 4)} s");
+            // var (readen, stime, rtime) = ls.RunBig();
+            // Console.WriteLine($"DATARATE - in {Math.Round(rtime.TotalSeconds, 4)}s Readen {Math.Round(readen, 2)} kB/s - Serialization took {Math.Round(stime.TotalSeconds, 4)} s");
 
             Console.WriteLine("LocalHost -----");
+
+            var (readen2, writen2, time2) = LocalSocketRunner.RunSmall();
+            Console.WriteLine($"DATARATE - in {Math.Round(time2.TotalSeconds, 4)}s Readen {Math.Round(readen2, 2)} kB/s - Writen {Math.Round(writen2, 2)} kB/s");
 
             /* Console.WriteLine("FirstIP ------");
             var (readen1, writen1, time1) = TcpSocketRunner.RunBig();

@@ -61,13 +61,12 @@ namespace TestRunner
         {
             var serverCancellationSource = new CancellationTokenSource();
             var clientCancellationSource = new CancellationTokenSource();
-            var stopWatch = Stopwatch.StartNew();
             TimeSpan elapesedTime;
             ulong reader_count = 0;
+            var sr = new SocketUnserializerAsync();
             try
             {
                 var sw = new SocketWriter();
-                var sr = new SocketUnserializerAsync();
                 var socks = LocalSocketUnserializer.GetLocalSockets();
 
 
@@ -86,16 +85,14 @@ namespace TestRunner
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.StackTrace);
+                Debug.WriteLine(e.StackTrace);
             }
             finally
             {
-                elapesedTime = stopWatch.Elapsed;
-                stopWatch.Stop();
-                this.serializationTime = this.reader.StopWatch.Elapsed;
+                this.serializationTime = sr.StopWatch.Elapsed;
             }
-            double readen_kbPerS = (reader_count / 1024) / elapesedTime.TotalSeconds;
-            return (readen_kbPerS, this.serializationTime, elapesedTime);
+            double readen_kbPerS = (reader_count / 1024) / sr.RunWatch.Elapsed.TotalSeconds;
+            return (readen_kbPerS, this.serializationTime, sr.RunWatch.Elapsed);
         }
 
         private static (Socket Server, Socket Client) GetLocalSockets()
