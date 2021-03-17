@@ -1,23 +1,23 @@
 ﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{4373C495-CED6-4906-A097-EF169C9CB702}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="DataHandlers/SocketUnserializerAsync.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="TestRunner/Program.cs">
     <Files>
       <File FileName="DataHandlers/SocketWriter.cs" Line="79" Column="6" />
-      <File FileName="DataHandlers/SocketReader.cs" Line="40" Column="42" />
-      <File FileName="TestRunner/Program.cs" Line="23" Column="1" />
-      <File FileName="TestRunner/TcpSocketRunner.cs" Line="33" Column="1" />
-      <File FileName="TestRunner/LocalSocketRunner.cs" Line="69" Column="63" />
-      <File FileName="TestRunner/LocalSocketUnserializer.cs" Line="104" Column="33" />
-      <File FileName="DataHandlers/SocketUnserializer.cs" Line="130" Column="34" />
+      <File FileName="DataHandlers/SocketReader.cs" />
+      <File FileName="TestRunner/Program.cs" Line="34" Column="13" />
+      <File FileName="TestRunner/TcpSocketRunner.cs" />
+      <File FileName="TestRunner/LocalSocketRunner.cs" />
+      <File FileName="TestRunner/LocalSocketUnserializer.cs" />
+      <File FileName="DataHandlers/SocketUnserializer.cs" />
       <File FileName="DataHandlers/SocketUnserializerAsync.cs" Line="143" Column="52" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="DotSocket" expanded="True">
-            <Node name="DataHandlers" expanded="True">
-              <Node name="SocketUnserializerAsync.cs" selected="True" />
+            <Node name="DataHandlers" expanded="True" />
+            <Node name="TestRunner" expanded="True">
+              <Node name="Program.cs" selected="True" />
             </Node>
-            <Node name="TestRunner" expanded="True" />
           </Node>
         </State>
       </Pad>
