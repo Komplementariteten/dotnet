@@ -1,0 +1,11 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AvaloniaChartApp.Views.LinplotChart">
+             <Canvas Width="500" Height="200" Background="Green">
+              <Path Fill="OrangeRed" Data="M 1, 1 c 0,0 50,5 50,-50 c 0,0 50,0 10,10 h -50 v 50 l 12, -12 Z" Canvas.Left="20" Canvas.Top="30" />
+              <Polyline Points="0,0 1,10, 2,5 3,6, 4,5 5,6 6,10, 12,18, 15,50, 20,-10 22,6 28,70 40, -100, 50,-2 60, 3" Stroke="Orange" Canvas.Left="20" Canvas.Bottom="20" />
+             </Canvas>
+</UserControl>
