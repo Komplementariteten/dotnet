@@ -1,0 +1,14 @@
+{
+    "FormattingOptions": {
+        "SpaceAfterCast": true,
+        "UseTabs": false,
+        "TabSize": 4,
+        "IndentationSize": 4,
+        "IndentBlock": true,
+        "NewLineForCatch": true,
+        "NewLineForElse": true,
+        "NewLineForClausesInQuery": true,
+        "NewLinesForBracesInAccessors": true,
+        "NewLinesForBracesInLambdaExpressionBody": true
+    }
+}
