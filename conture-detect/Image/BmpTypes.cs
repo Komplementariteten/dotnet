@@ -76,11 +76,11 @@ namespace Image
             return $"r:{this.Red:X2}, g:{this.Green:X2}, b:{this.Blue:X2}, a:{this.Alpha:X2}";
         }
 
-        public void SetWhite()
+        public void SetColor(int color)
         {
-            this.Red = byte.MaxValue;
-            this.Blue = byte.MaxValue;
-            this.Green = byte.MaxValue;
+            this.Red = (byte)((color & 0xff0000) >> 16);
+            this.Green = (byte)((color & 0xff00) >> 8);
+            this.Blue = (byte)(color & 0xff);
         }
     }
 
@@ -111,6 +111,25 @@ namespace Image
                 sb.AppendLine(p.ToString());
             }
             return sb.ToString();
+        }
+
+        public void DrawHorizontalLine(int row, int startX, int endX, int color) {
+            var offset = (row * this.AbsWidth) + startX;
+            var length = endX - startX;
+            for (int i = 0; i < length; i++)
+            {
+                  this.Pixel[offset + i].SetColor(color);
+            }
+        }
+
+        public void DrawVerticalLine(int x, int startY, int endY, int color) {
+            var length = endY - startY;
+            var offset = (startY * this.AbsWidth);
+            for (int i = 0; i < length; i++)
+            {
+                var index = (i * this.AbsWidth) + offset + x;
+                this.Pixel[index].SetColor(color);
+            }
         }
 
         public unsafe void Save(string path)
