@@ -154,16 +154,20 @@ public class Conture
 
     public bool TryAddBorderPixel(int x, int y)
     {
-        if(x < (this._topLeft.X - this._range)){
+        if (x < (this._topLeft.X - this._range))
+        {
             return false;
         }
-        if(x > (this._bottomRight.X + this._range)) {
+        if (x > (this._bottomRight.X + this._range))
+        {
             return false;
         }
-        if(y < (this._topLeft.Y - this._range)) {
+        if (y < (this._topLeft.Y - this._range))
+        {
             return false;
         }
-        if(y > (this._bottomRight.Y + this._range)) {
+        if (y > (this._bottomRight.Y + this._range))
+        {
             return false;
         }
         this.AddBorderPixel(x, y);
@@ -205,12 +209,12 @@ public static class AmplitudeContourDetection
         return new AmplitudeImage(bitmap);
     }
 
-    public static void Detect(CBitmap bitmap, int threshold)
+    public static void Detect(CBitmap bitmap, int threshold, MarkType markType)
     {
         var eventMap = new AmplitudeImage(bitmap.AbsWidth, bitmap.AbsHeight);
         var amps = bitmap.AsAmplitudeImage();
         ParallelMarkThresholdContures(amps, threshold, eventMap);
-        var contures = ApplyEventMapToBitmap(eventMap, bitmap);
+        var contures = ApplyEventMapToBitmap(eventMap, bitmap, markType);
     }
 
     public static void ParallelMarkThresholdContures(AmplitudeImage image, int threshold, AmplitudeImage eventMap)
@@ -242,7 +246,7 @@ public static class AmplitudeContourDetection
         });
     }
 
-    public static ContureCollection ApplyEventMapToBitmap(AmplitudeImage eventMap, CBitmap bitmap)
+    public static ContureCollection ApplyEventMapToBitmap(AmplitudeImage eventMap, CBitmap bitmap, MarkType markType)
     {
         var contures = new ContureCollection(eventMap.Width, eventMap.Height);
         for (var i = 0; i < eventMap.Height; i++)
@@ -253,7 +257,7 @@ public static class AmplitudeContourDetection
                 if (eventMap[ampImdex] == 1)
                 {
                     contures.AddBorderPixel(ampImdex);
-                    bitmap.Pixel[ampImdex].SetColor(0xffff00);
+                    if (markType.HasFlag(MarkType.MarkConture)) bitmap.Pixel[ampImdex].SetColor(0xffff00);
                 }
                 else if (eventMap[ampImdex] == 2)
                 {
@@ -262,12 +266,16 @@ public static class AmplitudeContourDetection
             }
         };
 
-        for(var i = 0; i < contures.Length; i++) {
-            var conture = contures[i];
-            bitmap.DrawHorizontalLine(conture.TopLeft.Y - 5, conture.TopLeft.X - 5, conture.BottomRight.X + 5, 0xffffff);
-            bitmap.DrawHorizontalLine(conture.BottomRight.Y + 5, conture.TopLeft.X - 5, conture.BottomRight.X + 5, 0xffffff);
-            bitmap.DrawVerticalLine(conture.TopLeft.X - 5, conture.TopLeft.Y - 5, conture.BottomRight.Y + 5, 0xffffff);
-            bitmap.DrawVerticalLine(conture.BottomRight.X + 5, conture.TopLeft.Y - 5, conture.BottomRight.Y + 5, 0xffffff);
+        if (markType.HasFlag(MarkType.MarkCluster))
+        {
+            for (var i = 0; i < contures.Length; i++)
+            {
+                var conture = contures[i];
+                bitmap.DrawHorizontalLine(conture.TopLeft.Y - 5, conture.TopLeft.X - 5, conture.BottomRight.X + 5, 0xffffff);
+                bitmap.DrawHorizontalLine(conture.BottomRight.Y + 5, conture.TopLeft.X - 5, conture.BottomRight.X + 5, 0xffffff);
+                bitmap.DrawVerticalLine(conture.TopLeft.X - 5, conture.TopLeft.Y - 5, conture.BottomRight.Y + 5, 0xffffff);
+                bitmap.DrawVerticalLine(conture.BottomRight.X + 5, conture.TopLeft.Y - 5, conture.BottomRight.Y + 5, 0xffffff);
+            }
         }
 
         return contures;

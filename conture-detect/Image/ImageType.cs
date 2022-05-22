@@ -4,4 +4,10 @@ namespace Image {
         UNKOWN,
         BMP
     }
+
+    [Flags]
+    public enum MarkType {
+        MarkConture,
+        MarkCluster,
+    }
 }

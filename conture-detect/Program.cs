@@ -13,7 +13,7 @@ if(Image.FileUtil.TryLoadBmp(path, out CBitmap bitmap)) {
     Console.WriteLine(bitmap.Head);
     Console.WriteLine($"Bmp Info");
     Console.WriteLine(bitmap.Info);
-    AmplitudeContourDetection.Detect(bitmap, 0xFFF);
+    AmplitudeContourDetection.Detect(bitmap, 0xFFF, MarkType.MarkConture | MarkType.MarkCluster);
     bitmap.Save("result.bmp");
 } else {
     Console.WriteLine($"{path} is not a bmp-file");
